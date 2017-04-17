@@ -354,16 +354,58 @@
 # def odd_even(a):
 #     if a % 2 == 1:
 #         return '홀수'
-#     return '짝수'
-# print (odd_even(a))
+#      return '짝수'
+#  print (odd_even(a))
 #
-# • 문제42. power 함수를 이용해서 숫자를 입력 받아 지수를 계산
-# a = int(input('밑수를 입력'))
-# b = int(input('지수를 입력'))
-# import math
-# math.pow(a, b)
+#  • 문제42. power 함수를 이용해서 숫자를 입력 받아 지수를 계산
+#  a = int(input('밑수를 입력'))
+#  b = int(input('지수를 입력'))
+#  import math
+#  math.pow(a, b)
 #
-# • 문제43. 오늘부터 3달 뒤의 날짜를 출력
+#  • 문제43. 오늘부터 3달 뒤의 날짜를 출력
+# from datetime import date
+# from dateutil.relativedelta import relativedelta
+# edt = date.today() + relativedelta(months=+3)
+# print(date.today(), edt)
+#
+#  • 문제44. 이름, 입사일, 입사일로부터 3달 후의 날짜 출력
+# import csv
 # import datetime
-# today = datetime.date.today()
-# print(today)
+# from dateutil.relativedelta import relativedelta
+# file = open("D:\data\emp2.csv", 'r')
+# emp_csv = csv.reader(file)
+# for emp_list in emp_csv:
+#      a = datetime.datetime.strptime(emp_list[4], '%Y-%m-%d')
+#      print(emp_list[1], emp_list[4], a + relativedelta(months=+3))
+#
+#  • 문제46. 올해 2월달의 마지막 날짜를 출력
+#
+#
+#
+#  • 문제47. 오늘부터 이번달 말일 까지 몇일 남았는가 출력
+# from datetime import date
+# from calendar import monthrange
+# print(monthrange(2017,4)[1])
+# print(date.today().day)
+# print(monthrange(2017,4)[1] - date.today().day )
+#
+#  • 문제48. 오늘이 무슨 요일인지 출력
+# from datetime import date
+# print(date.today())
+# print(date.today().weekday())
+#
+# days=['월','화','수','목','금','토','일']
+#
+# print(days[date.today().weekday()])
+#
+#  • 문제49. 이름, 입사일을 출력
+# import csv
+# import datetime
+# file = open("D:\data\emp2.csv", 'r')
+# emp_csv = csv.reader(file)
+# days=['월','화','수','목','금','토','일']
+# print('이름', '입사일', '입사 요일')
+# for emp_list in emp_csv:
+#      a = datetime.datetime.strptime(emp_list[4], '%Y-%m-%d')
+#      print(emp_list[1], emp_list[4], days[a.weekday()])
