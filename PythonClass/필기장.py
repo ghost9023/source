@@ -251,3 +251,806 @@
 #                 3
 #
 #         * range : loop 도는 조건 범위를 설정 가능하다. for i in range(1,10,2) 라고 하면 1부터 10까지 루프하는데 2단위로 루프. 1 3 5 7 9가 루프된다.
+#
+# * mit 공대 머신러닝 코드를 이해하기 위해 알아야 하는 것
+#      1. format 함수
+#      2. for loop
+#      3. 사용자 함수
+#      4. 자료형 - 리스트, 튜플, 딕셔너리
+#      5. 몬테카를로 알고리즘
+#      6. 탐욕 알고리즘
+#      7. if 문
+#      8. 특정 수학 공식 : self.values[self.prevstate] += self.alpha * (nextval - self.prevscore)
+#
+#
+#
+# 6.5 continue와 break 사용법
+# -continue : 반복문이 실행되는 동안 특정 코드블럭은 실행하지않고 다른 코드 블럭만 실행되게할때사용하는 문법
+#
+# for i in range(10):
+#     if i % 2 == 1:
+#         continue
+#
+#     print(i)
+#
+# 0
+# 2
+# 4
+# 6
+# 8
+#
+# = > i % 2 == 1:
+# continue: i가 홀수이면 지나가고 짝수만 실행되게 된다
+# 문제131 숫자를 1 ~10 을 출력하는데 중간에 5 는 출력되지 않게 출력!
+#
+# for i in range(1, 11):
+#     if i == 5:
+#         continue
+#
+#     print(i)
+#
+# num = 0
+# while num < 10:
+#     num += 1
+#     if num == 5:
+#         continue
+#
+#     print(num)
+#
+# 1
+# 2
+# 3
+# 4
+# 6
+# 7
+# 8
+# 9
+# 10
+#
+# -break문 루프를 중단시키는 역할을 하는 문법
+#
+# i = 0
+# while (True):
+#     i += 1
+#     if i == 10000000:
+#         print('i 가 {0} 이 됬습니다. 반복문 중단!'.format(i))
+#         break
+#
+# print(i)
+#
+# i가 10000000 이 됬습니다.반복문 중단! 10000000
+#
+# 문제132 함수를 생성하는데 아래와 같이 숫자를 넣어서 실행하면 해당 숫자만큼 숫자가 세로로 출력!
+#
+# print(break_fun(10))  # 10이 loop문을 중단시킬 숫자
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+# 10
+#
+#
+# def break_fun(var):
+#     num = 1
+#     while 1:
+#         print(num)
+#         if num == var:
+#             break
+#         num += 1
+#
+#
+# print(break_fun(10))
+#
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+# 10
+#
+# 문제133 위의 함수를 수정해서 결과가 가로로 출력!
+#
+# print(break_fun(10))  # 10이 loop 문을 중단시킬 숫자
+#
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+# 10
+#
+#
+# def break_fun(var):
+#     list = ''
+#     num = 1
+#     while (True):
+#         list = list + str(num) + '  '
+#         if num == var:
+#             break
+#         num += 1
+#     print(list)
+#
+#
+# print(break_fun(10))
+#
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+# 10
+#
+#
+# ※ 6장에서 배운 내용과 if 문과 loop 문을 정리하는 문제
+#
+# - pandas를 이용해서
+# 1. 판다스 기본문법
+# 2. 판다스 연산자
+# 3. 판다스 이용해서 서브쿼리
+# 4. 판다스 이용해서 조인
+#
+# - pandas를 이용하지 않고 조인
+# 1. for loop 문을 중첩해서 문제를 해결
+# 2. 딕셔너리 데이터 타입을 이해(MIT 코드에서도 중요하게 쓰인다)
+#
+# 문제134 아래와 같이 딕셔너리 형태의 데이터를 만들고 출력!
+#
+# emp_dic = {'mgr': '7788', 'sal': '1100', 'deptno': '20', 'comm': '0',
+#            'job': 'CLERK', 'hiredate': '1983-01-15', 'empno': '7876',
+#            'ename': 'ADAMS'}
+#
+# print(type(emp_dic))
+# print(emp_dic)
+# print(emp_dic['mgr'])
+#
+# < class 'dict'>
+#
+#
+# {'mgr': '7788', 'sal': '1100', 'deptno': '20', 'comm': '0', 'job': 'CLERK', 'hiredate': '1983-01-15', 'empno': '7876',
+#  'ename': 'ADAMS'}
+# 7788
+#
+# 문제135 6 장에서 배운 for loop 를 이용해서 emp2.csv를 읽어와서 emp_dic 라는 딕셔너리 데이터 유형 만들기!
+#
+# import csv
+#
+# emp = []
+# emp_file = open("d:\data\emp2.csv", "r")
+# emp_csv = csv.reader(emp_file)
+#
+# for i in emp_csv:
+#     emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                 'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+# print(emp)
+#
+# 문제136 emp 딕셔너리 변수에서 이름만 출력!
+#
+# import csv
+#
+# emp = []
+# emp_file = open("d:\data\emp2.csv", "r")
+# emp_csv = csv.reader(emp_file)
+#
+# for i in emp_csv:
+#     emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                 'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+# for emp_dic in emp:
+#     print(emp_dic['ename'])
+#
+# KING
+# BLAKE
+# CLARK
+# JONES
+# MARTIN
+# ALLEN
+# TURNER
+# JAMES
+# WARD
+# FORD
+# SMITH
+# SCOTT
+# ADAMS
+# MILLER
+#
+# 문제137 이름과 월급과 직업 출력!
+#
+# import csv
+#
+# emp = []
+# emp_file = open("d:\data\emp2.csv", "r")
+# emp_csv = csv.reader(emp_file)
+#
+# for i in emp_csv:
+#     emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                 'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+# for emp_dic in emp:
+#     print(emp_dic['ename'], emp_dic['sal'], emp_dic['job'])
+#
+# KING
+# 5000
+# PRESIDENT
+# BLAKE
+# 2850
+# MANAGER
+# CLARK
+# 2450
+# MANAGER
+# JONES
+# 2975
+# MANAGER
+# MARTIN
+# 1250
+# SALESMAN
+# ALLEN
+# 1600
+# SALESMAN
+# TURNER
+# 1500
+# SALESMAN
+# JAMES
+# 950
+# CLERK
+# WARD
+# 1250
+# SALESMAN
+# FORD
+# 3000
+# ANALYST
+# SMITH
+# 800
+# CLERK
+# SCOTT
+# 3000
+# ANALYST
+# ADAMS
+# 1100
+# CLERK
+# MILLER
+# 1300
+# CLERK
+#
+# 문제138(점심시간 문제) dept.csv을 읽어서 딕셔너리 데이터 구조로 저장하고 아래와 같이 수행하면 deptno, dname, loc가 출력!
+#
+# import csv
+#
+# dept = []
+# dept_file = open("d:\data\dept.csv")
+# dept_csv = csv.reader(dept_file)
+#
+# for i in dept_csv:
+#     dept.append({'deptno': i[1], 'dname': i[2], 'loc': i[3]})
+#
+# for dept_dic in dept:
+#     print(dept_dic['deptno'], dept_dic['dname'], dept_dic['loc'])
+#
+# deptno
+# dname
+# loc
+# 10
+# ACCOUNTING
+# NEW
+# YORK
+# 20
+# RESEARCH
+# DALLAS
+# 30
+# SALES
+# CHICAGO
+# 40
+# OPERATIONS
+# BOSTON
+#
+# 문제139
+# emp.csv
+# 와
+# dept.csv를
+# 각각
+# 읽어서
+# emp_dic, dept, dic
+# 딕셔너리
+# 자료형으로
+# 만드는
+# 스크립트를
+# 하나로
+# 합치시오
+#
+# import csv
+#
+# emp = []
+# dept = []
+# emp_file = open("d:\data\emp2.csv")
+# dept_file = open("d:\data\dept.csv")
+# emp_csv = csv.reader(emp_file)
+# dept_csv = csv.reader(dept_file)
+#
+# for i in emp_csv:
+#     emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                 'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+# for j in dept_csv:
+#     dept.append({'deptno': j[1], 'dname': j[2], 'loc': j[3]})
+#
+# 문제140 emp와 dept 라는 딕셔너리 자료구조를 만드는 스크립트와 중첩 for loop 문을 이용해서 emp와 dept를 조인시켜서 ename 과 loc출력! (Nested loop조인 방법)
+#
+#     import csv
+#
+#     emp = []
+#     dept = []
+#     emp_file = open("d:\data\emp2.csv")
+#     dept_file = open("d:\data\dept.csv")
+#     emp_csv = csv.reader(emp_file)
+#     dept_csv = csv.reader(dept_file)
+#
+#     for i in emp_csv:
+#         emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                     'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+#     for j in dept_csv:
+#         dept.append({'deptno': j[1], 'dname': j[2], 'loc': j[3]})
+#
+#     for e in emp:
+#         for d in dept:
+#             if e['deptno'] == d['deptno']:
+#                 print(e['ename'], d['loc'])
+#
+#     KING
+#     NEW
+#     YORK
+#     BLAKE
+#     CHICAGO
+#     CLARK
+#     NEW
+#     YORK
+#     JONES
+#     DALLAS
+#     MARTIN
+#     CHICAGO
+#     ALLEN
+#     CHICAGO
+#     TURNER
+#     CHICAGO
+#     JAMES
+#     CHICAGO
+#     WARD
+#     CHICAGO
+#     FORD
+#     DALLAS
+#     SMITH
+#     DALLAS
+#     SCOTT
+#     DALLAS
+#     ADAMS
+#     DALLAS
+#     MILLER
+#     NEW
+#     YORK
+#
+#     문제141 부서위치가 DALLAS인 사원들의 이름과 부서위치 출력!
+#
+#     import csv
+#
+#     emp = []
+#     dept = []
+#     emp_file = open("d:\data\emp2.csv")
+#     dept_file = open("d:\data\dept.csv")
+#     emp_csv = csv.reader(emp_file)
+#     dept_csv = csv.reader(dept_file)
+#
+#     for i in emp_csv:
+#         emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                     'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+#     for j in dept_csv:
+#         dept.append({'deptno': j[1], 'dname': j[2], 'loc': j[3]})
+#
+#     for e in emp:
+#         for d in dept:
+#             if (e['deptno'] == d['deptno']) & (d['loc'] == 'DALLAS'):
+#             print(e['ename'], d['loc'])
+#
+#     JONES
+#     DALLAS
+#     FORD
+#     DALLAS
+#     SMITH
+#     DALLAS
+#     SCOTT
+#     DALLAS
+#     ADAMS
+#     DALLAS
+#
+#     문제142 위의 스크립트를 이용해서 조인함수 생성!
+#
+#     print(join(emp, 'ename', dept,, 'loc', deptno))
+#
+#     import csv
+#
+#     emp = []
+#     dept = []
+#     emp_file = open("d:\data\emp2.csv")
+#     dept_file = open("d:\data\dept.csv")
+#     emp_csv = csv.reader(emp_file)
+#     dept_csv = csv.reader(dept_file)
+#
+#     for i in emp_csv:
+#         emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                     'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+#     for j in dept_csv:
+#         dept.append({'deptno': j[1], 'dname': j[2], 'loc': j[3]})
+#
+#     for e in emp:
+#         for d in dept:
+#             if (e['deptno'] == d['deptno']) & (d['loc'] == 'DALLAS'):
+#                 print(e['ename'], d['loc'])
+#
+#
+#     def join(table1, col1, table2, col2, conn_col):
+#         for i in table1:
+#             for j in table2:
+#                 if i[conn_col] == j[conn_col]:
+#                     print(i[col1], j[col2])
+#
+#
+#     print(join(emp, 'ename', dept, 'loc', 'deptno'))
+#
+#     JONES
+#     DALLAS
+#     FORD
+#     DALLAS
+#     SMITH
+#     DALLAS
+#     SCOTT
+#     DALLAS
+#     ADAMS
+#     DALLAS
+#     KING
+#     NEW
+#     YORK
+#     BLAKE
+#     CHICAGO
+#     CLARK
+#     NEW
+#     YORK
+#     JONES
+#     DALLAS
+#     MARTIN
+#     CHICAGO
+#     ALLEN
+#     CHICAGO
+#     TURNER
+#     CHICAGO
+#     JAMES
+#     CHICAGO
+#     WARD
+#     CHICAGO
+#     FORD
+#     DALLAS
+#     SMITH
+#     DALLAS
+#     SCOTT
+#     DALLAS
+#     ADAMS
+#     DALLAS
+#     MILLER
+#     NEW
+#     YORK
+#
+#     문제143
+#     pandas를
+#     이용해서
+#     ename, loc
+#     출력!
+#
+#     import pandas as pd
+#
+#     emp = pd.read_csv("d:\data\emp.csv")
+#     dept = pd.read_csv("d:\data\dept.csv")
+#
+#     result = pd.merge(emp, dept, on='deptno')
+#
+#     print(result[['ename', 'loc']])
+#
+#     ename
+#     loc
+#     0
+#     KING
+#     NEW
+#     YORK
+#     1
+#     CLARK
+#     NEW
+#     YORK
+#     2
+#     MILLER
+#     NEW
+#     YORK
+#     3
+#     BLAKE
+#     CHICAGO
+#     4
+#     MARTIN
+#     CHICAGO
+#     5
+#     ALLEN
+#     CHICAGO
+#     6
+#     TURNER
+#     CHICAGO
+#     7
+#     JAMES
+#     CHICAGO
+#     8
+#     WARD
+#     CHICAGO
+#     9
+#     JONES
+#     DALLAS
+#     10
+#     FORD
+#     DALLAS
+#     11
+#     SMITH
+#     DALLAS
+#     12
+#     SCOTT
+#     DALLAS
+#     13
+#     ADAMS
+#     DALLAS
+#
+#     문제144
+#     부서위치가
+#     DALLAS인
+#     사원들의
+#     이름과
+#     부서위치
+#     출력!
+#
+#     import pandas as pd
+#
+#     emp = pd.read_csv("d:\data\emp.csv")
+#     dept = pd.read_csv("d:\data\dept.csv")
+#
+#     res = pd.merge(emp, dept, on='deptno')
+#     result = res[['ename', 'loc']][res['loc'] == 'DALLAS']
+#
+#     print(result)
+#
+#     ename
+#     loc
+#     9
+#     JONES
+#     DALLAS
+#     10
+#     FORD
+#     DALLAS
+#     11
+#     SMITH
+#     DALLAS
+#     12
+#     SCOTT
+#     DALLAS
+#     13
+#     ADAMS
+#     DALLAS
+#
+#     문제145 이름과 부서위치를 출력하는데 아래와 같이 Outerjoin 구현!
+#
+#     select
+#     e.ename, d.loc
+#     from emp e, dept
+#
+#     d
+#     where
+#     e.deptno = d.deptno(+);
+#
+#     import pandas as pd
+#
+#     emp = pd.read_csv("d:\data\emp.csv")
+#     dept = pd.read_csv("d:\data\dept.csv")
+#
+#     res = pd.merge(emp, dept, on='deptno', how='right')
+#     result = res[['ename', 'loc']]
+#
+#     print(result)
+#
+#     ename
+#     loc
+#     0
+#     KING
+#     NEW
+#     YORK
+#     1
+#     CLARK
+#     NEW
+#     YORK
+#     2
+#     MILLER
+#     NEW
+#     YORK
+#     3
+#     BLAKE
+#     CHICAGO
+#     4
+#     MARTIN
+#     CHICAGO
+#     5
+#     ALLEN
+#     CHICAGO
+#     6
+#     TURNER
+#     CHICAGO
+#     7
+#     JAMES
+#     CHICAGO
+#     8
+#     WARD
+#     CHICAGO
+#     9
+#     JONES
+#     DALLAS
+#     10
+#     FORD
+#     DALLAS
+#     11
+#     SMITH
+#     DALLAS
+#     12
+#     SCOTT
+#     DALLAS
+#     13
+#     ADAMS
+#     DALLAS
+#     14
+#     NaN
+#     BOSTON
+#
+#     7장 목차
+#
+# 1. 함수 생성하는 방법
+# 2. 기본값 매개변수와 키워드 매개변수(MIT 코드 이해)
+# 3. 가변 매개변수(MIT 코드 이해)
+# 4. 매개변수로 함수 사용하는 경우
+# 5. 함수 밖의 변수, 함수 안의 변수
+# 6. 재귀함수(MIT 코드 이해)
+# 7. 중첩 함수
+#
+# 7.1 함수 생성하는 방법
+#
+#
+# def 함수이름(매개변수):
+#     실행문
+#
+#     return 결과
+#
+#
+# def my_abs(arg):
+#     if (arg < 0):
+#         result = arg * -1
+#     else:
+#         result = arg
+#
+#     return result
+#
+#
+# print(my_abs(-5))
+#
+# 5
+#
+# 문제146 아래와 같이 이름을 입력해서 함수를 실행하면 해당 사원의 부서위치가 출력!
+#
+# print(find_loc('SMITH'))
+#
+# DALLAS
+#
+# import pandas as pd
+#
+#
+# def find_loc(ename):
+#     emp = pd.read_csv("d:\data\emp.csv")
+#     dept = pd.read_csv("d:\data\dept.csv")
+#
+#     res = pd.merge(emp, dept, on='deptno')
+#     result = res[['loc']][res['ename'] == ename]
+#
+#     return result
+#
+#
+# print(find_loc('SMITH'))
+#
+# loc
+# 11
+# DALLAS
+#
+# 문제147 미분계수를 구하는 함수를 생성하는데 함수 f(x) = 2 X ^ 2 + 1 일때 x가 - 2 일때 기울기(미분계수) 를 구하시오!
+#
+# print(mibon_fun(-2))
+#
+# x가 - 2 에서의 기울기는 - 8 입니다
+#
+#
+# def minbon_fun(num):
+#
+#
+# delta = 0.0001
+# result = ((2 * (num + delta) * (num + delta) + 1) - (2 * num * num + 1)) / delta
+# return result
+#
+# print(minbon_fun(-2))
+#
+#
+# def minbon_fun(num):
+#     delta = 0.0001
+#     result = ((2 * pow((num + delta), 2) + 1) - (2 * pow(num, 2) + 1)) / delta
+#     return result
+#
+#
+# print(minbon_fun(-2))
+#
+# -7.999800000000334
+#
+# 7.4.매개변수로 함수 사용하는 경우
+# - 미분 함수 생성
+#
+#
+# def numerical_diff(f, x):
+#     delta = 0.0001  # 1e-4 로 해도 된다
+#
+#
+# return (f(x + h) - f(x - h)) / (2 * h)
+#
+# 함수 f(x) = 2 x ^ 2 + 1 생성
+#
+#
+# def function_1(x):
+#     return 2 * pow(x, 2) + 1
+#
+#
+# def numerical_diff(f, x):
+#     delta = 0.0001  # 1e-4 로 해도 된다
+#     return (f(x + delta) - f(x - delta)) / (2 * delta)
+#
+#
+# def function_1(x):
+#     return 2 * pow(x, 2) + 1
+#
+#
+# print(numerical_diff(function_1, -2))
+#
+# -8.000000000008
+#
+# 문제148 함수 f(x) = x ^ 2 - x + 5 에서 x가 - 2 일때의 미분계수!
+#
+# def numerical_diff(f, x):
+#     delta = 0.0001  # 1e-4 로 해도 된다
+#     return (f(x + delta) - f(x - delta)) / (2 * delta)
+#
+#
+# def function_1(x):
+#     return pow(x, 2) - x + 5
+#
+#
+# print(numerical_diff(function_1, -2))
+#
+# -5.000000000006111
