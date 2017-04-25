@@ -12,7 +12,6 @@
 # https://www.datascienceschool.net/view-notebook/d3ecf5cc7027441c8509c0cae7fea088/
 # https://www.datascienceschool.net/view-notebook/16c28c8c192147bfb3d4059474209e0a/
 #
-# numpy.distutils.system_info.NotFoundError: no lapack/blas resources found
 #
 
 import io
@@ -29,6 +28,15 @@ def draw_decision_tree(classifier):
     graph = pydot.graph_from_dot_data(dot_buf.getvalue())[0]
     image = graph.create_png()
     return Image(image)
+
+
+def draw_decision_tree_map(classifier):
+    dtree_two = open("D:/dtree2.dot", "w")
+    export_graphviz(classifier, out_file=dtree_two, feature_names=iris.feature_names)
+    graph = pydot.graph_from_dot_data(dtree_two.getvalue())[0]
+    image = graph.create_png()
+    return Image(image)
+
 
 
 def plot_decision_regions(X, y, classifier, title):
@@ -66,4 +74,14 @@ from sklearn.tree import DecisionTreeClassifier
 tree5 = DecisionTreeClassifier(criterion='entropy', max_depth=5, random_state=0).fit(X, y)
 
 draw_decision_tree(tree5)
+
+
+plot_decision_regions(X, y, tree5, "Depth 5")
+
+draw_decision_tree_map(tree5)
+
+
+from sklearn.metrics import confusion_matrix
+
+confusion_matrix(y, tree5.predict(X))
 
