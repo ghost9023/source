@@ -75,13 +75,13 @@ tree5 = DecisionTreeClassifier(criterion='entropy', max_depth=5, random_state=0)
 
 draw_decision_tree(tree5)
 
-
-plot_decision_regions(X, y, tree5, "Depth 5")
-
-draw_decision_tree_map(tree5)
-
-
-from sklearn.metrics import confusion_matrix
-
-confusion_matrix(y, tree5.predict(X))
-
+#
+# plot_decision_regions(X, y, tree5, "Depth 5")
+#
+# draw_decision_tree_map(tree5)
+#
+#
+# from sklearn.metrics import confusion_matrix
+#
+# confusion_matrix(y, tree5.predict(X))
+#

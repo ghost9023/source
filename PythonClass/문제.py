@@ -1224,20 +1224,8 @@
 #         c = c*a
 #
 # print(c)
-# • 문제123.
-# for loop 문을 이용해 power 함수 구현
-# a = int(input('밑수 '))
-# b = int(input('지수 '))
-# result = 1
 #
-# for i in range(b):
-#     result *= a
-# print(result)
-# • 문제124.겨울왕국
-# 대본에는
-# 숫자가
-# 몇개
-# 있는가?
+#  • 문제124.겨울왕국 대본에는 숫자가 몇개 있는가?
 # winter = open('C:\data\winter.txt')
 # lines = winter.readlines()
 # total = 0
@@ -1245,12 +1233,8 @@
 # for s in lines:
 #     total += sum(i.isdigit() for i in s)
 # print(total)
-# • 문제125.공백, 알파벳, 숫자도
-# 아닌
-# 특수문자
-# 몇개
-# 포함되어있는지
-# 확인
+#
+# • 문제125.공백, 알파벳, 숫자도 아닌 특수문자 몇개 포함되어있는지 확인
 # winter = open('C:\data\winter.txt')
 # lines = winter.readlines()
 # digit = 0
@@ -1263,16 +1247,8 @@
 #     space += sum(i.isspace() for i in s)
 #     total += len(s)
 # print(total - alpha - digit - space)
-# • 문제126.숫자
-# 물어보게
-# 하고
-# 숫자
-# 입력하면
-# 해당
-# 숫자만큼
-# 아래
-# 그림
-# 그려지게
+#
+#  • 문제126.숫자 물어보게 하고 숫자 입력하면 해당 숫자만큼 아래 그림 그려지게
 # a = int(input('몇 줄 ? '))
 # cnt = 0
 # while cnt < a:
@@ -1280,27 +1256,16 @@
 #     result = '★' * cnt
 #     blank = ' ' * (a - cnt)
 #     print(blank + result)
-# • 문제127.팩토리얼을
-# while loop 문으로 구현
-# a = int(input('팩토리얼 숫자 '))
+#
+#  • 문제127.팩토리얼을 while loop 문으로 구현 a = int(input('팩토리얼 숫자 '))
 # result = 1
 #
 # while a >= 1:
 #     result *= a
 #     a -= 1
 # print(result)
-# • 문제128.로그함수
-# 파이썬으로
-# 구현
-# 밑수
-# 입력
-# 2
-# 진수
-# 입력
-# 16
-# 로그값은
-# 4
-# 입니다.
+#
+#  • 문제128.로그함수 파이썬으로 구현 밑수 입력 2 진수 입력 16 로그값은 4 입니다.
 #
 # a = int(input('밑수 '))
 # b = int(input('진수 '))
@@ -1311,13 +1276,8 @@
 #     cnt += 1
 #
 # print('\n로그값은', cnt, '입니다.')
-# • 문제129.두수
-# 입력받아서
-# 최대공약수
-# 구하기(
-# while loop 랑 유클리드 호제법 수행)
-# 첫번째 수 입력
-# 두번째 수 입력
+#
+#  • 문제129.두수 입력받아서 최대공약수 구하기( while loop 랑 유클리드 호제법 수행) 첫번째 수 입력 두번째 수 입력
 #
 # first = int(input('첫번째 수 '))
 # second = int(input('두번째 수 '))
@@ -1328,11 +1288,8 @@
 #     result = second
 #     first, second = second, mod
 # print(result)
-# • 문제130.최대공약수
-# 알고싶은
-# 두
-# 수
-# 입력
+#
+#  • 문제130.최대공약수 알고싶은 두 수 입력
 # a = input('두 수 입력 ')
 #
 # a_list = a.split(' ')
@@ -1346,3 +1303,429 @@
 #     result = second
 #     first, second = second, mod
 # print(result)
+#
+# • 문제131. 1부터 10까지 5를 제외하고 출력
+# num = 0
+# while num < 10:
+#     num += 1
+#     if num == 5:
+#         continue
+#     print(num)
+#
+# 문제132 함수를 생성하는데 아래와 같이 숫자를 넣어서 실행하면 해당 숫자만큼 숫자가 세로로 출력!
+#
+# print(break_fun(10))  # 10이 loop문을 중단시킬 숫자
+#
+#
+# def break_fun(var):
+#     num = 1
+#     while 1:
+#         print(num)
+#         if num == var:
+#             break
+#         num += 1
+#
+#
+# print(break_fun(10))
+#
+#
+# 문제133 위의 함수를 수정해서 결과가 가로로 출력!
+#
+# print(break_fun(10))  # 10이 loop 문을 중단시킬 숫자
+#
+#
+#
+# def break_fun(var):
+#     list = ''
+#     num = 1
+#     while (True):
+#         list = list + str(num) + '  '
+#         if num == var:
+#             break
+#         num += 1
+#     print(list)
+#
+#
+# print(break_fun(10))
+#
+#
+##
+# 문제134 아래와 같이 딕셔너리 형태의 데이터를 만들고 출력!
+#
+# emp_dic = {'mgr': '7788', 'sal': '1100', 'deptno': '20', 'comm': '0',
+#            'job': 'CLERK', 'hiredate': '1983-01-15', 'empno': '7876',
+#            'ename': 'ADAMS'}
+#
+# print(type(emp_dic))
+# print(emp_dic)
+# print(emp_dic['mgr'])
+#
+# < class 'dict'>
+#
+#
+# {'mgr': '7788', 'sal': '1100', 'deptno': '20', 'comm': '0', 'job': 'CLERK', 'hiredate': '1983-01-15', 'empno': '7876',
+#  'ename': 'ADAMS'}
+# 7788
+#
+# 문제135 6 장에서 배운 for loop 를 이용해서 emp2.csv를 읽어와서 emp_dic 라는 딕셔너리 데이터 유형 만들기!
+#
+# import csv
+#
+# emp = []
+# emp_file = open("d:\data\emp2.csv", "r")
+# emp_csv = csv.reader(emp_file)
+#
+# for i in emp_csv:
+#     emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                 'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+# print(emp)
+#
+# 문제136 emp 딕셔너리 변수에서 이름만 출력!
+#
+# import csv
+#
+# emp = []
+# emp_file = open("d:\data\emp2.csv", "r")
+# emp_csv = csv.reader(emp_file)
+#
+# for i in emp_csv:
+#     emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                 'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+# for emp_dic in emp:
+#     print(emp_dic['ename'])
+#
+
+#
+# 문제137 이름과 월급과 직업 출력!
+#
+# import csv
+#
+# emp = []
+# emp_file = open("d:\data\emp2.csv", "r")
+# emp_csv = csv.reader(emp_file)
+#
+# for i in emp_csv:
+#     emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                 'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+# for emp_dic in emp:
+#     print(emp_dic['ename'], emp_dic['sal'], emp_dic['job'])
+#
+
+#
+# 문제138(점심시간 문제) dept.csv을 읽어서 딕셔너리 데이터 구조로 저장하고 아래와 같이 수행하면 deptno, dname, loc가 출력!
+#
+# import csv
+#
+# dept = []
+# dept_file = open("d:\data\dept.csv")
+# dept_csv = csv.reader(dept_file)
+#
+# for i in dept_csv:
+#     dept.append({'deptno': i[1], 'dname': i[2], 'loc': i[3]})
+#
+# for dept_dic in dept:
+#     print(dept_dic['deptno'], dept_dic['dname'], dept_dic['loc'])
+#
+# deptno
+# dname
+# loc
+#
+# 문제139 emp.csv 와 dept.csv를 각각 읽어서 emp_dic, dept, dic딕셔너리 자료형으로 만드는 스크립트를 하나로 합치시오
+#
+# import csv
+#
+# emp = []
+# dept = []
+# emp_file = open("d:\data\emp2.csv")
+# dept_file = open("d:\data\dept.csv")
+# emp_csv = csv.reader(emp_file)
+# dept_csv = csv.reader(dept_file)
+#
+# for i in emp_csv:
+#     emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                 'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+# for j in dept_csv:
+#     dept.append({'deptno': j[1], 'dname': j[2], 'loc': j[3]})
+#
+# 문제140 emp와 dept 라는 딕셔너리 자료구조를 만드는 스크립트와 중첩 for loop 문을 이용해서 emp와 dept를 조인시켜서 ename 과 loc출력! (Nested loop조인 방법)
+#
+#     import csv
+#
+#     emp = []
+#     dept = []
+#     emp_file = open("d:\data\emp2.csv")
+#     dept_file = open("d:\data\dept.csv")
+#     emp_csv = csv.reader(emp_file)
+#     dept_csv = csv.reader(dept_file)
+#
+#     for i in emp_csv:
+#         emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                     'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+#     for j in dept_csv:
+#         dept.append({'deptno': j[1], 'dname': j[2], 'loc': j[3]})
+#
+#     for e in emp:
+#         for d in dept:
+#             if e['deptno'] == d['deptno']:
+#                 print(e['ename'], d['loc'])
+#
+
+#
+#     문제141 부서위치가 DALLAS인 사원들의 이름과 부서위치 출력!
+#
+#     import csv
+#
+#     emp = []
+#     dept = []
+#     emp_file = open("d:\data\emp2.csv")
+#     dept_file = open("d:\data\dept.csv")
+#     emp_csv = csv.reader(emp_file)
+#     dept_csv = csv.reader(dept_file)
+#
+#     for i in emp_csv:
+#         emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                     'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+#     for j in dept_csv:
+#         dept.append({'deptno': j[1], 'dname': j[2], 'loc': j[3]})
+#
+#     for e in emp:
+#         for d in dept:
+#             if (e['deptno'] == d['deptno']) & (d['loc'] == 'DALLAS'):
+#             print(e['ename'], d['loc'])
+#
+
+#
+#     문제142 위의 스크립트를 이용해서 조인함수 생성!
+#
+#     print(join(emp, 'ename', dept,, 'loc', deptno))
+#
+#     import csv
+#
+#     emp = []
+#     dept = []
+#     emp_file = open("d:\data\emp2.csv")
+#     dept_file = open("d:\data\dept.csv")
+#     emp_csv = csv.reader(emp_file)
+#     dept_csv = csv.reader(dept_file)
+#
+#     for i in emp_csv:
+#         emp.append({'empno': i[0], 'ename': i[1], 'job': i[2], 'mgr': i[3],
+#                     'hiredate': i[4], 'sal': i[5], 'comm': i[6], 'deptno': i[7]})
+#
+#     for j in dept_csv:
+#         dept.append({'deptno': j[1], 'dname': j[2], 'loc': j[3]})
+#
+#     for e in emp:
+#         for d in dept:
+#             if (e['deptno'] == d['deptno']) & (d['loc'] == 'DALLAS'):
+#                 print(e['ename'], d['loc'])
+#
+#
+#     def join(table1, col1, table2, col2, conn_col):
+#         for i in table1:
+#             for j in table2:
+#                 if i[conn_col] == j[conn_col]:
+#                     print(i[col1], j[col2])
+#
+#
+#     print(join(emp, 'ename', dept, 'loc', 'deptno'))
+#
+
+#     문제143 pandas를 이용해서 ename, loc 출력!
+#
+#     import pandas as pd
+#
+#     emp = pd.read_csv("d:\data\emp.csv")
+#     dept = pd.read_csv("d:\data\dept.csv")
+#
+#     result = pd.merge(emp, dept, on='deptno')
+#
+#     print(result[['ename', 'loc']])
+#
+
+#
+#     문제144 부서위치가 DALLAS인 사원들의 이름과 부서위치 출력!
+#
+#     import pandas as pd
+#
+#     emp = pd.read_csv("d:\data\emp.csv")
+#     dept = pd.read_csv("d:\data\dept.csv")
+#
+#     res = pd.merge(emp, dept, on='deptno')
+#     result = res[['ename', 'loc']][res['loc'] == 'DALLAS']
+#
+#     print(result)
+#
+
+#
+#     문제145 이름과 부서위치를 출력하는데 아래와 같이 Outerjoin 구현!
+#
+#     select
+#     e.ename, d.loc
+#     from emp e, dept
+#
+#     d
+#     where
+#     e.deptno = d.deptno(+);
+#
+#     import pandas as pd
+#
+#     emp = pd.read_csv("d:\data\emp.csv")
+#     dept = pd.read_csv("d:\data\dept.csv")
+#
+#     res = pd.merge(emp, dept, on='deptno', how='right')
+#     result = res[['ename', 'loc']]
+#
+#     print(result)
+#
+# 문제146 아래와 같이 이름을 입력해서 함수를 실행하면 해당 사원의 부서위치가 출력!
+#
+# print(find_loc('SMITH'))
+#
+# DALLAS
+#
+# import pandas as pd
+#
+#
+# def find_loc(ename):
+#     emp = pd.read_csv("d:\data\emp.csv")
+#     dept = pd.read_csv("d:\data\dept.csv")
+#
+#     res = pd.merge(emp, dept, on='deptno')
+#     result = res[['loc']][res['ename'] == ename]
+#
+#     return result
+#
+#
+# print(find_loc('SMITH'))
+#
+# loc
+# 11
+# DALLAS
+#
+# 문제147 미분계수를 구하는 함수를 생성하는데 함수 f(x) = 2 X ^ 2 + 1 일때 x가 - 2 일때 기울기(미분계수) 를 구하시오!
+#
+# print(mibon_fun(-2))
+#
+# x가 - 2 에서의 기울기는 - 8 입니다
+#
+#
+# def minbon_fun(num):
+#
+#
+# delta = 0.0001
+# result = ((2 * (num + delta) * (num + delta) + 1) - (2 * num * num + 1)) / delta
+# return result
+#
+# print(minbon_fun(-2))
+#
+#
+# def minbon_fun(num):
+#     delta = 0.0001
+#     result = ((2 * pow((num + delta), 2) + 1) - (2 * pow(num, 2) + 1)) / delta
+#     return result
+#
+#
+# print(minbon_fun(-2))
+#
+# 문제148 함수 f(x) = x ^ 2 - x + 5 에서 x가 - 2 일때의 미분계수!
+#
+# def numerical_diff(f, x):
+#     delta = 0.0001  # 1e-4 로 해도 된다
+#     return (f(x + delta) - f(x - delta)) / (2 * delta)
+#
+#
+# def function_1(x):
+#     return pow(x, 2) - x + 5
+#
+# 문제149 아래와 같이 이름만 넣으면 소속팀과 직위가 출력되는 함수를 생성
+# def f_149(name, team='머신러닝팀', position):
+#     print('이름 = ', name)
+#     print('소속팀 = ', team)
+#     print('직위 = ', position)         #문자열.format() `
+
+#
+# 문제150
+#
+#
+# 문제151 아래와 같이 숫자를 입력하고 함수를 실행하면 숫자가 세로로 출력되게
+#def print_a(*s):
+#     for i in s:
+#         print(i)
+#
+# print_a(1,2,3,4,5)
+#
+# 문제152 아래 스크립트에서 마지막 scope_test()를 실행했을 떄 a가 1이 아니라 0이 출력되게 하려면 scope_test() 함수를 생성할 때 어떻게 생성해야하는가
+# def scope_test():
+#     a = 1
+#     print('a : {0}'.format(a))
+#
+#
+# scope_test()
+#
+# a=0
+#
+# scope_test()
+#--------------------------------
+#def scope_test():
+#     global a
+#     a = 1
+#     print('a : {0}'.format(a))
+# scope_test()
+# print('-----------')
+# a=0
+# print('a : {0}'.format(a))
+# print('-----------')
+# scope_test()
+#
+# 문제153. 10!을 재귀함수로 구현해서 출력
+# def fac(n):
+#     if n == 0:
+#         return 1
+#     elif n > 0:
+#         return fac(n-1)*n
+#
+# print(fac(10))
+# #fac(10)
+#
+# 문제154. 16과 20의 최대공약수를 재귀함수로 출력
+# def gcdtwo(a,b):
+#     if min(a,b) == 0:
+#         return max(a,b)
+#     return gcdtwo(b,a%b)
+#
+# 문제155. 가변 매개변수와 재귀 알고리즘을 이용해서 최대 공약수를 출력하는 함수 생성
+
+
+
+• 문제160.표준편차를 출력하는 함수를 모듈화 시켜서 다른 실행창에서 실행
+
+
+def stddev(*args):
+    import math
+
+    def avg():
+        return sum(args) / len(args)
+
+    def variance(a):
+        total = 0
+        for arg in args:
+            total += (arg - a) ** 2
+        return total / (len(args) - 1)
+
+    return math.sqrt(variance(avg()))
+
+
+if __name__ == "__main__":
+    print(stddev(2.3, 1.7, 1.4, 0.7, 1.9))
+
+import stddev as st
+
+st.stddev(2.3, 1.7, 1.4, 0.7, 1.9)
+• 문제161.
