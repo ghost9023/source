@@ -1,211 +1,89 @@
-# # [['327', '2', '0'], ['123', '1', '1'], ['356', '1', '0'], ['489', '0', '1']]
-#
-#
-# # 128, 138, 158, 168, 178, 218, 238, 258, 268, 278, 318, 328, 358, 368, 378, 518, 528, 538, 568, 578, 618, 628, 638, 658, 678, 718, 728, 738, 758, 768,
-# # 812, 813, 815, 816, 817, 821, 823, 825, 826, 827, 831, 832, 835, 836, 837, 851, 852, 853, 856, 857, 861, 862, 863, 865, 867, 871, 872, 873, 875, 876
-#
-# elif (int(a2[j][1]) == 0) & (int(a2[j][2]) == 1):  # 0스트 1볼
-# for k in anslist:
-#     if (str(k)[0] == a2[j][0][1]) & (str(k)[2] != a2[j][0][0]) & (str(k)[2] != a2[j][0][1]) & (
-#         str(k)[2] != a2[j][0][2]) & (str(k)[1] != a2[j][0][0]) & (str(k)[1] != a2[j][0][1]) & (
-#         str(k)[1] != a2[j][0][2]):
-#         ans.append(k)
-#     if (str(k)[0] == a2[j][0][2]) & (str(k)[2] != a2[j][0][0]) & (str(k)[2] != a2[j][0][1]) & (
-#         str(k)[2] != a2[j][0][2]) & (str(k)[0] != a2[j][0][0]) & (str(k)[0] != a2[j][0][1]) & (
-#         str(k)[0] != a2[j][0][2]):
-#         ans.append(k)
-#     if (str(k)[1] == a2[j][0][0]) & (str(k)[0] != a2[j][0][0]) & (str(k)[0] != a2[j][0][1]) & (
-#         str(k)[0] != a2[j][0][2]) & (str(k)[1] != a2[j][0][0]) & (str(k)[1] != a2[j][0][1]) & (
-#         str(k)[1] != a2[j][0][2]):
-#         ans.append(k)
-#     if (str(k)[1] == a2[j][0][2]) & (str(k)[2] != a2[j][0][0]) & (str(k)[2] != a2[j][0][1]) & (
-#         str(k)[2] != a2[j][0][2]) & (str(k)[1] != a2[j][0][0]) & (str(k)[1] != a2[j][0][1]) & (
-#         str(k)[1] != a2[j][0][2]):
-#         ans.append(k)
-#     if (str(k)[2] == a2[j][0][0]) & (str(k)[2] != a2[j][0][0]) & (str(k)[2] != a2[j][0][1]) & (
-#         str(k)[2] != a2[j][0][2]) & (str(k)[0] != a2[j][0][0]) & (str(k)[0] != a2[j][0][1]) & (
-#         str(k)[0] != a2[j][0][2]):
-#         ans.append(k)
-#     if (str(k)[2] == a2[j][0][1]) & (str(k)[0] != a2[j][0][0]) & (str(k)[0] != a2[j][0][1]) & (
-#         str(k)[0] != a2[j][0][2]) & (str(k)[1] != a2[j][0][0]) & (str(k)[1] != a2[j][0][1]) & (
-#         str(k)[1] != a2[j][0][2]):
-#         ans.append(k)
-#
-#
-#
-# # _ 4 _ str(k)[0] str(k)[0] str(k)[2] str(k)[2]
-# if (a2[j][0][0] == str(k)[1]) & (a2[j][0][0] != str(k)[0]) & (a2[j][0][2] != str(k)[0]) & (a2[j][0][0] != str(k)[2]) & (a2[j][0][2] != str(k)[2]):
-#     ans.append(k)
-# # _ _ 4 str(k)[0] str(k)[0] str(k)[1] str(k)[1]
-# if (a2[j][0][0] == str(k)[2]) & (a2[j][0][0] != str(k)[0]) & (a2[j][0][1] != str(k)[0]) & (a2[j][0][0] != str(k)[1]) & (a2[j][0][1] != str(k)[1]):
-#     ans.append(k)
-# # 8 _ _ str(k)[1] str(k)[1] str(k)[2] str(k)[2]
-# if (a2[j][0][1] == str(k)[0]) & (a2[j][0][1] != str(k)[1]) & (a2[j][0][2] != str(k)[1]) & (a2[j][0][1] != str(k)[2]) & (a2[j][0][2] != str(k)[2]):
-#     ans.append(k)
-# # _ _ 8 str(k)[0] str(k)[0] str(k)[1] str(k)[1]
-# if (a2[j][0][1] == str(k)[2]) & (a2[j][0][0] != str(k)[0]) & (a2[j][0][1] != str(k)[0]) & (a2[j][0][0] != str(k)[1]) & (a2[j][0][1] != str(k)[1]):
-#     ans.append(k)
-# # 9 _ _ str(k)[1] str(k)[1] str(k)[2] str(k)[2]
-# if (a2[j][0][2] == str(k)[0]) & (a2[j][0][1] != str(k)[1]) & (a2[j][0][2] != str(k)[1]) & (a2[j][0][1] != str(k)[2]) & (a2[j][0][2] != str(k)[2]):
-#     ans.append(k)
-# # _ 9 _ str(k)[0] str(k)[0] str(k)[2] str(k)[2]
-# if (a2[j][0][2] == str(k)[1]) & (a2[j][0][0] != str(k)[0]) & (a2[j][0][2] != str(k)[0]) & (a2[j][0][0] != str(k)[2]) & (a2[j][0][2] != str(k)[2]):
-#     ans.append(k)
-#
-#
-# import os, psutil
-#
-# # 시작 메모리 체크
-# proc1 = psutil.Process(os.getpid())
-# mem1 = proc1.memory_info()
-# before_start=mem1[0]
-#
-# # 코드 실행
-#
-# # 실행 후 맨 밑에서 코드 구동 후 메모리 체크
-# proc = psutil.Process(os.getpid())
-# mem = proc.memory_info()
-# after_start=mem[0]
-# print('memory use : ',after_start-before_start)
+from tkinter import *
+import random
+import time
 
-##############################################################
-from operator import itemgetter
+class Ball:
 
-question_list = []
+    def __init__(self, canvas, paddle, color):
+        self.canvas = canvas
+        self.paddle = paddle
+        self.id = canvas.create_oval(10, 10, 25, 25, fill=color)
+        canvas.configure(background='black')
+        self.canvas.move(self.id, 245, 100)
+        starts = [-3, -2, -1, 1, 2, 3]
+        random.shuffle(starts)
 
-count = 0
-n = int(input())
-while count < n:
-    count = count+1
-    question_input = list(input().split(' '))
-    question_list.append(question_input)
-list.sort(question_list, key=itemgetter(1), reverse=True)
-answer_list=[]
+        self.x = starts[0]
+        self.y = -3
+        self.canvas_height = self.canvas.winfo_height()
+        self.canvas_width = self.canvas.winfo_width()
+        print('높이 : ',self.canvas_height)
+        print('넓이 : ',self.canvas_width)
+        self.hit_bottom = False
 
-for k in range(122,988,1):
-    if (int(str(k)[1]) != 0) & (int(str(k)[2]) != 0) & (str(k)[0] != str(k)[1]) & (str(k)[0] != str(k)[2]) & (str(k)[1] != str(k)[2]):
-        answer_list.append(k)
-
-case=[]
-
-for j in range(0,len(question_list),1):
-    if (int(question_list[j][1]) == 3) & (int(question_list[j][2]) == 0):
-        case.append(question_list[j][0])
-        break
-    elif (int(question_list[j][1]) == 0) & (int(question_list[j][2]) == 0):
-        for k in answer_list:
-            if (str(k)[0] != question_list[j][0][0]) & (str(k)[0] != question_list[j][0][1]) & (str(k)[0] != question_list[j][0][2]) \
-                    & (str(k)[1] != question_list[j][0][0]) & (str(k)[1] != question_list[j][0][1]) & (str(k)[1] != question_list[j][0][2]) \
-                    & (str(k)[2] != question_list[j][0][0]) & (str(k)[2] != question_list[j][0][1]) & (str(k)[2] != question_list[j][0][2]) :
-                case.append(k)
-
-    elif (int(question_list[j][1]) == 2) & (int(question_list[j][2]) == 0):
-        for k in answer_list:
-            if (str(k)[0] == question_list[j][0][0]) & (str(k)[1] == question_list[j][0][1]) & (str(k)[2] != question_list[j][0][2]):
-                case.append(k)
-            if (str(k)[0] == question_list[j][0][0]) & (str(k)[1] != question_list[j][0][1]) & (str(k)[2] == question_list[j][0][2]):
-                case.append(k)
-            if (str(k)[0] != question_list[j][0][0]) & (str(k)[1] == question_list[j][0][1]) & (str(k)[2] == question_list[j][0][2]):
-                case.append(k)
-
-    elif (int(question_list[j][1]) == 1) & (int(question_list[j][2]) == 0):
-        for k in answer_list:
-            if (str(k)[0] == question_list[j][0][0]) & (str(k)[1] != question_list[j][0][1]) \
-                    & (str(k)[2] != question_list[j][0][2]) & (str(k)[2] != question_list[j][0][0])\
-                    & (str(k)[2] != question_list[j][0][1]) & (str(k)[2] != question_list[j][0][2]) & (str(k)[1] != question_list[j][0][0]) \
-                    & (str(k)[1] != question_list[j][0][1]) & (str(k)[1] != question_list[j][0][2]):
-                case.append(k)
-            if (str(k)[0] != question_list[j][0][0]) & (str(k)[1] == question_list[j][0][1]) \
-                    & (str(k)[2] != question_list[j][0][2]) & (str(k)[2] != question_list[j][0][0]) \
-                    & (str(k)[2] != question_list[j][0][1]) & (str(k)[2] != question_list[j][0][2]) \
-                    & (str(k)[0] != question_list[j][0][0]) & (str(k)[0] != question_list[j][0][1]) \
-                    & (str(k)[0] != question_list[j][0][2]):
-                case.append(k)
-            if (str(k)[0] != question_list[j][0][0]) & (str(k)[1] != question_list[j][0][1]) \
-                    & (str(k)[2] == question_list[j][0][2]) & (str(k)[0] != question_list[j][0][0]) \
-                    & (str(k)[0] != question_list[j][0][1]) & (str(k)[0] != question_list[j][0][2]) \
-                    & (str(k)[1] != question_list[j][0][0]) & (str(k)[1] != question_list[j][0][1]) \
-                    & (str(k)[1] != question_list[j][0][2]):
-                case.append(k)
+    def draw(self):
+        self.canvas.move(self.id, self.x, self.y)
+                            #공     x축      y축
+        pos = self.canvas.coords(self.id)
+        if pos[1] <= 0:
+            self.y = 3
+        if pos[3] >= self.canvas_height:
+            self.hit_bottom = True
+        if pos[0] <= 0:
+            self.x = 3
+        if pos[2] >= self.canvas_width:
+            self.x = -3
+        if self.hit_paddle(pos) == True:
+            self.y = -3
 
 
-
-    elif (int(question_list[j][1]) == 1) & (int(question_list[j][2]) == 1):
-        for k in answer_list:
-            if (str(k)[0] == question_list[j][0][0]) & (str(k)[2] == question_list[j][0][1]) & (str(k)[1] != question_list[j][0][2]):
-                case.append(k)
-            if (str(k)[0] == question_list[j][0][0]) & (str(k)[1] == question_list[j][0][2]) & (str(k)[2] != question_list[j][0][1]):
-                case.append(k)
-            if (str(k)[1] == question_list[j][0][1]) & (str(k)[0] == question_list[j][0][2]) & (str(k)[2] != question_list[j][0][0]):
-                case.append(k)
-            if (str(k)[1] == question_list[j][0][1]) & (str(k)[2] == question_list[j][0][0]) & (str(k)[0] != question_list[j][0][2]):
-                case.append(k)
-            if (str(k)[2] == question_list[j][0][2]) & (str(k)[1] == question_list[j][0][0]) & (str(k)[0] != question_list[j][0][1]):
-                case.append(k)
-            if (str(k)[2] == question_list[j][0][2]) & (str(k)[0] == question_list[j][0][1]) & (str(k)[1] != question_list[j][0][0]):
-                case.append(k)
-
-    elif (int(question_list[j][1]) == 1) & (int(question_list[j][2]) == 2):
-        for k in answer_list:
-            if (str(k)[0] == question_list[j][0][0]) & (str(k)[1] == question_list[j][0][2]) & (str(k)[2] == question_list[j][0][1]):
-                case.append(k)
-            if (str(k)[1] == question_list[j][0][1]) & (str(k)[0] == question_list[j][0][2]) & (str(k)[2] == question_list[j][0][0]):
-                case.append(k)
-            if (str(k)[2] == question_list[j][0][2]) & (str(k)[1] == question_list[j][0][0]) & (str(k)[0] == question_list[j][0][1]):
-                case.append(k)
-
-    elif (int(question_list[j][1]) == 0) & (int(question_list[j][2]) == 2):
-        for k in answer_list:
-            if (str(k)[0] == question_list[j][0][1]) & (str(k)[1] == question_list[j][0][0]) & (str(k)[2] != question_list[j][0][2]):
-                case.append(k)
-            if (str(k)[0] == question_list[j][0][2]) & (str(k)[2] == question_list[j][0][0]) & (str(k)[1] != question_list[j][0][1]):
-                case.append(k)
-            if (str(k)[1] == question_list[j][0][2]) & (str(k)[2] == question_list[j][0][1]) & (str(k)[0] != question_list[j][0][0]):
-                case.append(k)
+    def hit_paddle(self,pos):
+        paddle_pos = self.canvas.coords(self.paddle.id)
+        if pos[2] >= paddle_pos[0] and pos[0] <= paddle_pos[2]:
+            if pos[3] >= paddle_pos[1] and pos[1] <= paddle_pos[3]:
+                return True
+        return False
 
 
-    elif (int(question_list[j][1]) == 0) & (int(question_list[j][2]) == 1):
-        for k in answer_list:
+class Paddle:
 
-            if (question_list[j][0][0] == str(k)[1]) & (question_list[j][0][0] != str(k)[0]) \
-                    & (question_list[j][0][2] != str(k)[0]) & (question_list[j][0][0] != str(k)[2]) & (question_list[j][0][2] != str(k)[2]):
-                case.append(k)
+    def __init__(self,canvas,color):
+        self.canvas = canvas
+        self.id = canvas.create_rectangle(0,0,100,10,fill=color)
+        self.canvas.move(self.id, 200, 400)
+        self.x = 0
+        self.canvas_width = self.canvas.winfo_width()
+        self.canvas.bind_all('<KeyPress-Left>',self.turn_left)
+        self.canvas.bind_all('<KeyPress-Right>',self.turn_right)
 
-            if (question_list[j][0][0] == str(k)[2]) & (question_list[j][0][0] != str(k)[0]) \
-                    & (question_list[j][0][1] != str(k)[0]) & (question_list[j][0][0] != str(k)[1]) & (question_list[j][0][1] != str(k)[1]):
-                case.append(k)
+    def draw(self):
+        self.canvas.move(self.id, self.x, 0)
+        pos = self.canvas.coords(self.id)
+        if pos[0] <= 0:
+            self.x = 0
+        elif pos[2] >= self.canvas_width:
+            self.x = 0
 
-            if (question_list[j][0][1] == str(k)[0]) & (question_list[j][0][1] != str(k)[1]) \
-                    & (question_list[j][0][2] != str(k)[1]) & (question_list[j][0][1] != str(k)[2]) & (question_list[j][0][2] != str(k)[2]):
-                case.append(k)
+    def turn_left(self,evt):
+        self.x = -9
 
-            if (question_list[j][0][1] == str(k)[2]) & (question_list[j][0][0] != str(k)[0]) \
-                    & (question_list[j][0][1] != str(k)[0]) & (question_list[j][0][0] != str(k)[1]) & (question_list[j][0][1] != str(k)[1]):
-                case.append(k)
+    def turn_right(self,evt):
+        self.x = 9
 
-            if (question_list[j][0][2] == str(k)[0]) & (question_list[j][0][1] != str(k)[1]) \
-                    & (question_list[j][0][2] != str(k)[1]) & (question_list[j][0][1] != str(k)[2]) & (question_list[j][0][2] != str(k)[2]):
-                case.append(k)
+tk = Tk()
+tk.title("Game")
+tk.resizable(0, 0)
+tk.wm_attributes("-topmost", 1)
+canvas = Canvas(tk, width=600, height=500, bd=0, highlightthickness=0)
+canvas.pack()
+tk.update()
+paddle = Paddle(canvas,'white')
+ball = Ball(canvas, paddle, 'white')
 
-            if (question_list[j][0][2] == str(k)[1]) & (question_list[j][0][0] != str(k)[0]) \
-                    & (question_list[j][0][2] != str(k)[0]) & (question_list[j][0][0] != str(k)[2]) & (question_list[j][0][2] != str(k)[2]):
-                case.append(k)
+while 1:
 
-    elif (int(question_list[j][1]) == 0) & (int(question_list[j][2]) == 3):
-        for k in answer_list:
-            if (str(k)[0] == question_list[j][0][1]) & (str(k)[1] == question_list[j][0][2]) & (str(k)[2] != question_list[j][0][0]):
-                case.append(k)
-            if (str(k)[0] == question_list[j][0][2]) & (str(k)[1] != question_list[j][0][0]) & (str(k)[2] == question_list[j][0][1]):
-                case.append(k)
-
-
-final_answer = [i for i in set(case) if case.count(i) >= len(question_list)]
-result = len(final_answer)
-print(result)
-
-# 질문갯수 : 4
-# 숫자3자리 스트라이크 볼넷을 입력 123 1 1
-# 숫자3자리 스트라이크 볼넷을 입력 356 1 0
-# 숫자3자리 스트라이크 볼넷을 입력 327 2 0
-# 숫자3자리 스트라이크 볼넷을 입력 489 0 1
-# 정답의 개수 :  2
+    ball.draw()
+    paddle.draw()
+    tk.update_idletasks()
+    tk.update()
+    time.sleep(0.02)
