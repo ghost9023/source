@@ -3,7 +3,7 @@ from math import *
 import random
 import copy
 import time
-
+sTime = time.time()
 BOARD_FORMAT = "|-|---|1|------|2|------|3|------|4|------|5|------|6|------|7|------|8|------|9|---\n" \
                "|1| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} | {8} |\n|" \
                "-|---------------------------------------------------------------------------------\n" \
@@ -149,7 +149,7 @@ class Node:
 
 def UCT(rootstate, itermax):
     rootnode = Node(state=rootstate)
-    sTime = time.time()
+
     for i in range(itermax):
         node = rootnode
         state = copy.deepcopy(rootstate)
@@ -175,8 +175,8 @@ def UCT(rootstate, itermax):
             node = node.parentNode
 
     print(rootnode.ChildrenToString())
-    eTime = time.time()
-    print('AI가 수를 계산하는데 걸린 시간 : ', eTime - sTime)
+
+
     s = sorted(rootnode.childNodes, key=lambda c: c.wins / c.visits)
     return sorted(s, key=lambda c: c.visits)[-1].move
 
@@ -190,48 +190,24 @@ def UCTPlayGame():
             m = UCT(rootstate, itermax=10000)
 
         else:
-            m1 = input("수를 둘 행(1-9)을 입력하세요 : ")
-            m2 = input("수를 둘 열(1-9)을 입력하세요 : ")
-            m=m1+m2
-            m = int(m)
-            m = m-10-int(m1)
+            rootstate = copy.deepcopy(state)
+            m = UCT(rootstate, itermax=10000)
         state.DoMove(m)
 
     if state.GetResult(state.playerJustMoved) == 2.0:
         print("Player " + str(state.playerJustMoved) + " Wins!!")
-
+        eTime = time.time()
+        print('AI가 수를 계산하는데 걸린 시간 : ', eTime - sTime)
     elif state.GetResult(state.playerJustMoved) == 0.0:
         print("Player " + str(3 - state.playerJustMoved) + " Wins!!")
-
+        eTime = time.time()
+        print('AI가 수를 계산하는데 걸린 시간 : ', eTime - sTime)
     else:
         print("Draw!!")
-
+        eTime = time.time()
+        print('AI가 수를 계산하는데 걸린 시간 : ', eTime - sTime)
 
 if __name__ == "__main__":
     UCTPlayGame()
 
 
-# Assult
-# http://egloos.zum.com/spaurh/v/4068754
-# 프로그래머가 확인하고 싶은 조건을 걸어두고 그냥 실행만 하면 조건에 맞지 않는 값이 들어왔을 때, 프로그래머가 디버깅을 하지 않아도 오류가
-# 발생한 위치를 정확하게 알 수 있다. 일반적으로 ASSERT는 다음과 같은 상황에서 사용한다.
-#
-# 1. 내가 작성한 메서드에 넘어온 매개 변수를 확인하고 싶을 때
-# 2. 내가 호출한 메서드에서 반환한 값을 확인하고 싶을 때
-# 3. 내가 호출하는 메서드의 매개 변수를 확인하고 싶을 때
-#
-# 첫번째, ''내가 작성한 메서드에 넘어온 매개 변수를 확인하고 싶을 때''가 ASSERT를 사용하는 가장 흔한 경우이다. 앞에서 소개한 예제 코드도 바로 이런 경우에 속한다고 볼 수 있다.
-# 이 경우에는 대부분 메서드의 코드 시작 부분에서 오류가 발생할 수 있는 모든 상황을 검증하는  것이 일반적이다. 왜냐하면 시작 부분에서 완벽하게 검증하지 않고 ASSERT 코드가 분산되어
-# 있다면 매개 변수로 넘어온 값이 내가 작성한 코드에 의해서 영향을 받게 되어 ASSERT가 실패할 수 있기 때문이다. 이런 경우에는 비록 ASSERT로 오류가 발생하는 위치를 찾았다고 하더라도
-#  디버깅하기 위해서 처음부터 코드를 다시 살펴봐야 하기 때문이다. 따라서 매개 변수는 함수 시작 부분에서 확인한다라고 알아두시면 되겠다.
-#
-# 두번째 ''내가 작성한 메서드에서 반환한 값을 확인하고 싶은 경우''는 우리가 잊어버리기가 굉장히 쉽다. 하지만 첫번째 상황보다는 ASSERT를 해야 한다라는 인식면에서 볼때 더 많이 알려진 경우
-# 라고 볼 수 있다. 사실 프로그래머가 되면서 가장 많이 듣는 말이 리턴 값을 검사해야 한다는 말이다.  리턴 값을 넘기지 않는 함수들도 많지만, 함수가 제대로 작성되어 있다면 적어도 성공 또는 실패라는
-# 정도는 알려주어야 한다고 생각한다. 리턴 값이 없는 함수들(리턴 값이 void인 함수들)을 작성한 프로그래머는 거의 모든 상황에서 함수가 성공하며 이 함수를 사용하는 사람은 함수의 성공 여부에
-# 관심을 가질 필요가 없다라고 생각하기 때문일 것이다. 하지만 그건 함수를 작성하는 사람의 생각일 뿐이지, 함수가 리턴값으로 성공이라고 알려준다고 해도 전혀 해가 될것이 없고 언젠가는 함수의
-# 결과를 확인해야 하는 순간이 올 수 있기 때문에 될 수 있으면 리턴 값을 넘기도록 함수를 작성하는 것이 좋다고 생각한다. 결국 내가 호출하는 어떠한 함수도 실패할 수 있고 내가 원하는 대로 함수가
-# 작동하는지 확인해야 할 필요가 있기 때문에 함수의 리턴값은 함수를 호출한 다음 곧바로 검사할 수 있도록 해야한다.
-#
-# 마지막으로 ''내가 호출하는 메서드의 매개 변수를 확인하고 싶을 때''에는 일반적으로 자주 일어나는  경우는 아니지만, 다른 사람이 작성한 함수가 잘 작동할 수 있도록 배려하는 차원에서 확인한다고
-#  보면 되겠다. 하지만 내가 아무리 정확하게 검증한다고 하더라도 해당 함수를 작성한 사람이 함수  안에서 내가 전달한 매개 변수를 검증하는 것보다는 확실하지 못할 것이다. 결국 첫번째 경우를
-# 모두가 지켜준다면 세번째 경우는 필요가 없다.
